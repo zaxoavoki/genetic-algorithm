@@ -17,5 +17,5 @@ def get_random_hex_color():
     return '#%06X' % randint(0, 256 ** 3 - 1)
 
 
-def against_direction(key: str) -> str:
+def opposite_direction(key: str) -> str:
     return { 'R': 'L', 'L': 'R', 'U': 'D', 'D': 'U' }.get(key)

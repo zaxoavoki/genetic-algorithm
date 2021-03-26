@@ -21,7 +21,7 @@ def generate_random_segments(path):
         # Remove previous and same direction
         if prev_direction: 
             directions.remove(prev_direction)
-            directions.remove(against_direction(prev_direction))
+            directions.remove(opposite_direction(prev_direction))
         
         direction = random.choice(directions)
         distance = random.randint(1, MAX_SEGMENT_DIS)
@@ -41,7 +41,7 @@ def generate_random_segments(path):
     # In this place x, y can not be equal the end point
     directions = ['U', 'D', 'L', 'R']
     directions.remove(prev_direction)
-    directions.remove(against_direction(prev_direction))
+    directions.remove(opposite_direction(prev_direction))
 
     direction = random.choice(directions)
     distance = random.randint(1, MAX_SEGMENT_DIS)
@@ -160,7 +160,7 @@ def mutate(ind: Individual) -> None:
                 path.segments.pop(i)
                 continue
 
-            if i > 0 and path.segments[i].direction == against_direction(path.segments[i - 1].direction):
+            if i > 0 and path.segments[i].direction == opposite_direction(path.segments[i - 1].direction):
                 if path.segments[i - 1].distance < path.segments[i].distance:
                     path.segments[i - 1].direction = path.segments[i].direction
                     path.segments[i - 1].distance = path.segments[i].distance - path.segments[i - 1].distance

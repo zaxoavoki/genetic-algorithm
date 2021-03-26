@@ -11,7 +11,7 @@ from gui import *
 
 if __name__ == '__main__':
     # Seed random to test algorithm
-    random.seed(129)
+    # random.seed(129)
 
     random_algorithm_dict = {
         'best': [],
@@ -28,6 +28,10 @@ if __name__ == '__main__':
 
     # Read file and get size of the map
     (field_width, field_height), coordinates = read_data(FILENAME)
+
+    # Set field width and height to make fitness calculations correct
+    Individual.f_width = field_width
+    Individual.f_height = field_height
 
     x_axis = EPOCHES // 2
     exec_start_time = time.time()
