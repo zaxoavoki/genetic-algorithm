@@ -1,0 +1,7 @@
+/.vscode
+/.idea
+
+model.png
+models/
+
+__pycache__/
