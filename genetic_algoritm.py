@@ -101,7 +101,7 @@ def single_point_crossover(parent1: Individual, parent2: Individual) -> Individu
     pivot = random.randint(1, len(parent1.paths))
     child = Individual()
     
-    child.paths = copy.deepcopy(parent1.paths[:pivot]) + copy.deepcopy(parent1.paths[pivot:])
+    child.paths = copy.deepcopy(parent1.paths[:pivot]) + copy.deepcopy(parent2.paths[pivot:])
     return child
 
   
